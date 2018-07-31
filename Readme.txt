@@ -1,42 +1,56 @@
+Shadowsocks Kcptun for ER-X(-SFP)
 
-shadowsocks for EdgeRouter X
+åŸºäºŽizerosoulçš„ç‰ˆæœ¬ï¼Œå¯¹ç»„ä»¶è¿›è¡Œäº†æ›´æ–°ï¼Œå¹¶èžå…¥äº†Kcptunçš„æ”¯æŒã€‚
 
-ÏÂÔØÌáÊ¾:
-×îÐÂ°æµÄss-libevÊ¹ÓÃrc4-md5µÈ¼ÓÃÜÐ­Òé»áÌáÊ¾Ã»ÓÐ×ã¹»µÄìØÀ´Éú³É¸ßÖÊÁ¿µÄËæ»úÖµ£¬µ¼ÖÂÆô¶¯Ê§°Ü£¬Òò´ËÈç¹ûÎÞ·¨Ê¹ÓÃÇëÏÂÔØ¾É°æ:
-https://github.com/izerosoul/shadowsocks_erx/releases/download/v1.0/ss-erx-v1.0.tar.gz
-Èç¹ûÒªÊ¹ÓÃ×îÐÂ°æ²ÅÖ§³ÖµÄchacha20-ietf-poly1305µÈ¼ÓÃÜÐ­Òé¾Í¿ÉÒÔÏÂÔØ×îÐÂ°æ:
-https://github.com/izerosoul/shadowsocks_erx/releases/download/v1.1/ss-erx-v1.1.tar.gz
+ç»„ä»¶è¯´æ˜Žï¼š
 
-°²×°:
-1.ÏÂÔØshadowsocks_erx-master.zip²¢½âÑ¹
-2.ÓÃwinscp°Ñ½âÑ¹µÄËùÓÐÎÄ¼þcopyµ½/tmpÄ¿Â¼
-3.Á¬½ÓÂ·ÓÉCLIÃüÁî½çÃæ²¢µÇÂ½£¬È»ºóÖ´ÐÐ: 
-cd /tmp
-sudo bash install.sh
-4.¸ù¾ÝÌáÊ¾ÊäÈëshadowsocksÅäÖÃÐÅÏ¢£¬Ò»°ãÖ»ÐèÒªÊäÈë·þÎñÆ÷µØÖ·¡¢¶Ë¿Ú¡¢ÃÜÂë£¬ÆäËüÑ¡Ïî¿ÉÒÔÖ±½Ó»Ø³µÊ¹ÓÃÄ¬ÈÏÑ¡Ïî¡£
+ChinaDNS: ç»´æŒizerosoulåŸºäºŽ1.3.2ä¿®æ”¹çš„ç‰ˆæœ¬
+pdnsd: ç»´æŒizerosoulå¼•ç”¨çš„1.2.9ç‰ˆæœ¬
+Shadowsocks-libev: åŸºäºŽshadowsocks/shadowsocks-libevæºç ä¸ºER-X(-SFP)ç¼–è¯‘çš„3.2.0ç‰ˆæœ¬ï¼ŒåŒ…å«ss-redirå’Œss-local
+Kcptun: å¼•ç”¨xtaci/kcptuné¡¹ç›®20180316ç‰ˆæœ¬ï¼Œkcptun-linux-mipsle-20180316.tar.gz
 
-×¢Òâ:
-1.¹úÄÚÍâÁ÷Á¿×Ô¶¯·ÖÁ÷£¬Í¨¹ýipset¶Ô¹úÄÚIP½øÐÐ°×Ãûµ¥£¬¹úÄÚIP²»»á·­Ç½·ÃÎÊ£¬Ö»ÓÐ¹úÍâÁ÷Á¿»á×ßshadowsocksÍ¨µÀ·­Ç½
-2.Ö»ÄÜ¶ÔTCPÁ÷Á¿·­Ç½
-3.¹úÍâÍøÕ¾DNS¾­shadowsocks·þÎñÆ÷ÖÐ×ªÊ¹ÓÃTCP·ÃÎÊ8.8.8.8£¬·ÀÖ¹ÎÛÈ¾£¬¹úÄÚÓòÃûÊ¹ÓÃ¹úÄÚDNS½âÎö£¬²»»áÓ°ÏìCDN·ÃÎÊ
-4.1080¶Ë¿Ú¿ÉÒÔ×÷Îªsocks5·­Ç½´úÀíÊ¹ÓÃ
-5.ÎÄ¼þ´æ·ÅÔÚ/configÄ¿Â¼ÊÇÒòÎªÕâ¸öÄ¿Â¼±¸·ÝÅäÖÃµÄÊ±ºò»á±»Ò»Æð±¸·Ý£¬²¢ÇÒÏµÍ³Éý¼¶Ò²²»»áÉ¾³ý
-6.shadowsocks-libev°æ±¾:v3.1.0, chinadns°æ±¾:v1.3.2(ÐÞ¸Ä°æ)£¬pdnsd°æ±¾:v1.2.9
-7.EdgeRouter X EdgeOS v1.8.5,v1.9.0²âÊÔÍ¨¹ý
-8.Èç¹ûÏëÔÝÍ£shadowsocks£¬ÔËÐÐsudo /etc/init.d/shadowsocks stop
-9.ÖØÐÂÆô¶¯¾ÍÔËÐÐsudo /etc/init.d/shadowsocks start
-10.ÔËÐÐsudo crontab -e£¬²¢ÔÚÎÄ¼þÄ©Î²Ìí¼ÓÒÔÏÂÄÚÈÝ£¬¾Í¿ÉÒÔÊµÏÖÃ¿¸ô5·ÖÖÓ¼ì²âss×´Ì¬£¬Èç¹û²»ÄÜ·­Ç½¾Í×Ô¶¯ÖØÆô·þÎñ£º
+å®‰è£…:
+1. ä¸‹è½½æˆ–cloneæœ¬é¡¹ç›®ï¼Œå¹¶æ‹·è´è‡³è·¯ç”±å™¨
+2. æŒ‰ç…§å®žé™…æƒ…å†µè°ƒæ•´é…ç½®æ–‡ä»¶shadowsocks.jsonå’Œkcp.jsonçš„å‚æ•°
+3. åœ¨è·¯ç”±å™¨chmod +x install.shåŽæ‰§è¡Œå®‰è£…è„šæœ¬
+
+ä½¿ç”¨:
+
+1. åœ¨/etc/init.d/shadowsocksè„šæœ¬ä¸­è®¾ç½®DNSï¼Œå¹¶é…ç½®éœ€è¦BYPASSçš„IPæ®µæˆ–å¤šä¸ªIP
+
+2. è„šæœ¬ä½¿ç”¨:
+å¯åŠ¨ sudo /etc/init.d/shadowsocks start
+é‡å¯ sudo /etc/init.d/shadowsocks restart
+ç»ˆæ­¢ sudo /etc/init.d/shadowsocks stop
+çŠ¶æ€ sudo /etc/init.d/shadowsocks status
+
+3. æä¾›SSæ£€æµ‹è„šæœ¬ss-monitor.shï¼Œå¯åˆ©ç”¨crontabå®žçŽ°è‡ªåŠ¨æ£€æµ‹å’ŒæœåŠ¡é‡å¯
+
+
+ä»¥ä¸‹ä¸ºåŽŸé¡¹ç›®ç»´æŠ¤è€…è¯´æ˜Ž
+
+æ³¨æ„:
+1.å›½å†…å¤–æµé‡è‡ªåŠ¨åˆ†æµï¼Œé€šè¿‡ipsetå¯¹å›½å†…IPè¿›è¡Œç™½åå•ï¼Œå›½å†…IPä¸ä¼šç¿»å¢™è®¿é—®ï¼Œåªæœ‰å›½å¤–æµé‡ä¼šèµ°shadowsocksé€šé“ç¿»å¢™
+2.åªèƒ½å¯¹TCPæµé‡ç¿»å¢™
+3.å›½å¤–ç½‘ç«™DNSç»shadowsocksæœåŠ¡å™¨ä¸­è½¬ä½¿ç”¨TCPè®¿é—®8.8.8.8ï¼Œé˜²æ­¢æ±¡æŸ“ï¼Œå›½å†…åŸŸåä½¿ç”¨å›½å†…DNSè§£æžï¼Œä¸ä¼šå½±å“CDNè®¿é—®
+4.1080ç«¯å£å¯ä»¥ä½œä¸ºsocks5ç¿»å¢™ä»£ç†ä½¿ç”¨
+5.æ–‡ä»¶å­˜æ”¾åœ¨/configç›®å½•æ˜¯å› ä¸ºè¿™ä¸ªç›®å½•å¤‡ä»½é…ç½®çš„æ—¶å€™ä¼šè¢«ä¸€èµ·å¤‡ä»½ï¼Œå¹¶ä¸”ç³»ç»Ÿå‡çº§ä¹Ÿä¸ä¼šåˆ é™¤
+6.shadowsocks-libevç‰ˆæœ¬:v3.1.0, chinadnsç‰ˆæœ¬:v1.3.2(ä¿®æ”¹ç‰ˆ)ï¼Œpdnsdç‰ˆæœ¬:v1.2.9
+7.EdgeRouter X EdgeOS v1.8.5,v1.9.0æµ‹è¯•é€šè¿‡
+8.å¦‚æžœæƒ³æš‚åœshadowsocksï¼Œè¿è¡Œsudo /etc/init.d/shadowsocks stop
+9.é‡æ–°å¯åŠ¨å°±è¿è¡Œsudo /etc/init.d/shadowsocks start
+10.è¿è¡Œsudo crontab -eï¼Œå¹¶åœ¨æ–‡ä»¶æœ«å°¾æ·»åŠ ä»¥ä¸‹å†…å®¹ï¼Œå°±å¯ä»¥å®žçŽ°æ¯éš”5åˆ†é’Ÿæ£€æµ‹ssçŠ¶æ€ï¼Œå¦‚æžœä¸èƒ½ç¿»å¢™å°±è‡ªåŠ¨é‡å¯æœåŠ¡ï¼š
 */5 * * * * sh /config/shadowsocks/bin/ss-monitor.sh
 
-PTÏÂÔØÓÃ»§Çë×¢Òâ£¬Èç¹ûÄãÓÐ¶ÀÁ¢µÄÏÂÔØ»ú£¬¿ÉÒÔÉèÖÃÈÃÏÂÔØ»ú²»×ßSS¡£¾ßÌå²Ù×÷ÈçÏÂ£º
-ssÆô¶¯½Å±¾/etc/init.d/shadowsocksÀïÃæÓÐÏÂÃæÒ»ÐÐ:
+PTä¸‹è½½ç”¨æˆ·è¯·æ³¨æ„ï¼Œå¦‚æžœä½ æœ‰ç‹¬ç«‹çš„ä¸‹è½½æœºï¼Œå¯ä»¥è®¾ç½®è®©ä¸‹è½½æœºä¸èµ°SSã€‚å…·ä½“æ“ä½œå¦‚ä¸‹ï¼š
+sså¯åŠ¨è„šæœ¬/etc/init.d/shadowsocksé‡Œé¢æœ‰ä¸‹é¢ä¸€è¡Œ:
 #BYPASS_RANGE=192.168.123.0/24
-È¥µô×¢ÊÍ(É¾µô#ºÅ)ÖØÆô·þÎñ¾Í¿ÉÒÔÉúÐ§£¬È»ºó192.168.123.0/24ÕâÕû¸öÍø¶Î¶¼²»»á×ßssÍ¨µÀÁË£¬Í¬Ê±Ò²ÎÞ·¨·­Ç½ÁË£¬192.168.123.0/24Ò²¿ÉÒÔ»»³Éµ¥¶ÀIP»òÕßÆäËüÍø¶Î¡£
+åŽ»æŽ‰æ³¨é‡Š(åˆ æŽ‰#å·)é‡å¯æœåŠ¡å°±å¯ä»¥ç”Ÿæ•ˆï¼Œç„¶åŽ192.168.123.0/24è¿™æ•´ä¸ªç½‘æ®µéƒ½ä¸ä¼šèµ°ssé€šé“äº†ï¼ŒåŒæ—¶ä¹Ÿæ— æ³•ç¿»å¢™äº†ï¼Œ192.168.123.0/24ä¹Ÿå¯ä»¥æ¢æˆå•ç‹¬IPæˆ–è€…å…¶å®ƒç½‘æ®µã€‚
 
-DNS½âÎö¹ý³Ì
-chinadns    ±ØÐëÅäÖÃÖÁÉÙÒ»¸ö¹úÄÚDNS£¬Ò»¸ö¹úÍâDNS
-dnsmasq  ->    chinadns    (¹úÍâIP)->    pdnsd   -> ss-server -> dns-server:ok
-			   (¹úÄÚIP)->    114.114.114.114:ok
+DNSè§£æžè¿‡ç¨‹
+chinadns    å¿…é¡»é…ç½®è‡³å°‘ä¸€ä¸ªå›½å†…DNSï¼Œä¸€ä¸ªå›½å¤–DNS
+dnsmasq  ->    chinadns    (å›½å¤–IP)->    pdnsd   -> ss-server -> dns-server:ok
+			   (å›½å†…IP)->    114.114.114.114:ok
 
-chinadns×÷ÕßºÜ¾ÃÃ»ÓÐ¸üÐÂ¹ýÁË£¬µ«ÊÇÓÐ¼¸¸öbug£¬»áµ¼ÖÂÓÐÐ©Í¬Ê±ÓÐ¹úÄÚ¹úÍâCDNµÄÓòÃû½âÎö³ö¹úÍâµÄIP£¬±¾·½°¸Ê¹ÓÃµÄchinadnsÎÒÐÞ¸´ÁËÕâ¸öbug²¢ÓÅ»¯ÁË²¿·ÖÇé¿öÏÂµÄ½âÎöËÙ¶È¡£
-ss·­Ç½·½°¸Ä¿Ç°×îÈÝÒ×³öÎÊÌâµÄ¾ÍÊÇDNS·ÀÎÛÈ¾£¬×î½üµÄ¼¸´Î¸üÐÂ¼¸ºõ¶¼ÊÇÕë¶ÔDNS£¬µ½Ä¿Ç°°æ±¾ÖÕÓÚÈÃÎÒ±È½ÏÂúÒâÁË¡£
+chinadnsä½œè€…å¾ˆä¹…æ²¡æœ‰æ›´æ–°è¿‡äº†ï¼Œä½†æ˜¯æœ‰å‡ ä¸ªbugï¼Œä¼šå¯¼è‡´æœ‰äº›åŒæ—¶æœ‰å›½å†…å›½å¤–CDNçš„åŸŸåè§£æžå‡ºå›½å¤–çš„IPï¼Œæœ¬æ–¹æ¡ˆä½¿ç”¨çš„chinadnsæˆ‘ä¿®å¤äº†è¿™ä¸ªbugå¹¶ä¼˜åŒ–äº†éƒ¨åˆ†æƒ…å†µä¸‹çš„è§£æžé€Ÿåº¦ã€‚
+ssç¿»å¢™æ–¹æ¡ˆç›®å‰æœ€å®¹æ˜“å‡ºé—®é¢˜çš„å°±æ˜¯DNSé˜²æ±¡æŸ“ï¼Œæœ€è¿‘çš„å‡ æ¬¡æ›´æ–°å‡ ä¹Žéƒ½æ˜¯é’ˆå¯¹DNSï¼Œåˆ°ç›®å‰ç‰ˆæœ¬ç»ˆäºŽè®©æˆ‘æ¯”è¾ƒæ»¡æ„äº†ã€‚
