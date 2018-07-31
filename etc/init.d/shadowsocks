@@ -15,7 +15,6 @@ DAEMON_PDNSD=/config/shadowsocks/bin/pdnsd
 DAEMON_CHINADNS=/config/shadowsocks/bin/chinadns
 DAEMON_KCPTUN=/config/shadowsocks/bin/client_linux_mipsle
 
-#/config/shadowsocks/bin/pdnsd -c /config/shadowsocks/conf/pdnsd.conf
 #Change ISPDNS to your ISP dns or public dns, like 1.2.4.8, 114.114.114.114
 ISPDNS=119.29.29.29
 
