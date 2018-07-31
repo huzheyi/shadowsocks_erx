@@ -1,0 +1,16 @@
+{
+    "localaddr": "127.0.0.1:777",
+    "remoteaddr": "yourvpsip:3389",
+    "key": "set your key here",
+    "crypt": "aes-128",
+    "mode": "fast2",
+    "mtu": 1350,
+    "sndwnd": 128,
+    "rcvwnd": 512,
+    "datashard": 10,
+    "parityshard": 3,
+    "dscp": 0,
+    "nocomp": true,
+    "conn": 1,
+    "autoexpire": 60
+}
