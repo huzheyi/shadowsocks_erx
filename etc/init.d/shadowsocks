@@ -102,6 +102,7 @@ EOF
 	iptables -t nat -A SHADOWSOCKS -m set --match-set ss_ipset_bypass dst -j RETURN && \
 	iptables -t nat -A SHADOWSOCKS -p tcp -j REDIRECT --to-ports 1081 && \
 	iptables -t nat -A PREROUTING -p tcp -j SHADOWSOCKS && \
+	iptables -t nat -A PREROUTING -p udp --dport 53 -j DNAT --to 192.168.1.1 &&\
 	iptables -t nat -A OUTPUT -p tcp -j SHADOWSOCKS
 	if [ "$BYPASS_RANGE" ]; then
 		iptables -t nat -I SHADOWSOCKS -s $BYPASS_RANGE -j RETURN
@@ -117,6 +118,7 @@ EOF
 
 rules_flush() {
 	iptables -t nat -F SHADOWSOCKS
+	iptables -t nat -D PREROUTING -p udp --dport 53 -j DNAT --to 192.168.1.1
 	iptables -t nat -D PREROUTING -p tcp -j SHADOWSOCKS
 	iptables -t nat -D OUTPUT -p tcp -j SHADOWSOCKS
 	iptables -t nat -X SHADOWSOCKS
