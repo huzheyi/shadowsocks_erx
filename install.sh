@@ -11,9 +11,7 @@ chmod +x /config/shadowsocks/bin/*
 echo "copy file ok"
 
 #change dnsmasq config
-dnscfg=/etc/dnsmasq.conf
-[ 0 == `grep "^log-facility" $dnscfg|wc -l` ] && echo log-facility=/var/log/dnsmasq.log >> $dnscfg
-[ 0 == `grep "^cache-size" $dnscfg|wc -l` ] && echo cache-size=1000 >> $dnscfg
+dnscfg=/etc/dnsmasq.d/my.cnf
 [ 0 == `grep "^no-resolv" $dnscfg|wc -l` ] && echo no-resolv >> $dnscfg
 [ 0 == `grep "^server" $dnscfg|wc -l` ] && echo server=$public_dns >> $dnscfg
 echo "change dnsmasq config ok"
