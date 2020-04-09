@@ -18,7 +18,7 @@
 2. 按照实际情况调整配置文件shadowsocks.json和kcp.json的参数（参考shadowsocks/shadowsocks-libev与xtaci/kcptun项目说明）
 
 3. 在路由器`sudo chmod +x install.sh`后执行安装脚本
-(也可不安装，手动执行/config/shadowsocks/shadowsocks脚本，或在/config/scripts/post-config.d下放入启动脚本进行开机自启)
+(也可将启动脚本装入/config/scripts/post-config.d下，以保证版本更新后无需重新安装)
 
 ## 使用:
 
