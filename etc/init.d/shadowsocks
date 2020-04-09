@@ -162,9 +162,9 @@ case "$1" in
 	log_end_msg $?
 
 	log_daemon_msg "Change dns config"
-	sed -i s/server=$ISPDNS/server=127.0.0.1#5301/ /etc/dnsmasq.conf
-	[ 0 == `grep "^server" /etc/dnsmasq.conf|wc -l` ] && echo server=127.0.0.1#5301 >> /etc/dnsmasq.conf
-	[ 0 == `grep "^no-resolv" /etc/dnsmasq.conf|wc -l` ] && echo no-resolv >> /etc/dnsmasq.conf
+	sed -i s/server=$ISPDNS/server=127.0.0.1#5301/ /etc/dnsmasq.d/my.conf
+	[ 0 == `grep "^server" /etc/dnsmasq.d/my.conf|wc -l` ] && echo server=127.0.0.1#5301 >> /etc/dnsmasq.d/my.conf
+	[ 0 == `grep "^no-resolv" /etc/dnsmasq.d/my.conf|wc -l` ] && echo no-resolv >> /etc/dnsmasq.d/my.conf
 	/etc/init.d/dnsmasq restart
 	log_end_msg $?
 
@@ -190,8 +190,8 @@ case "$1" in
 	rules_flush
 	log_end_msg $?
 	log_daemon_msg "Change dns config"
-	sed -i s/server=127.0.0.1#5301/server=$ISPDNS/ /etc/dnsmasq.conf
-	[ 0 == `grep "^server" /etc/dnsmasq.conf|wc -l` ] && echo server=$ISPDNS >> /etc/dnsmasq.conf
+	sed -i s/server=127.0.0.1#5301/server=$ISPDNS/ /etc/dnsmasq.d/my.conf
+	[ 0 == `grep "^server" /etc/dnsmasq.d/my.conf|wc -l` ] && echo server=$ISPDNS >> /etc/dnsmasq.d/my.conf
 	/etc/init.d/dnsmasq restart
 	log_end_msg $?
     ;;
